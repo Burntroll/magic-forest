@@ -5,7 +5,7 @@
 }
 
 :root {
-
+  --index: calc(1vw + 1vh);
 }
 
 @font-face {
@@ -35,6 +35,8 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
+  overflow: hidden;
+  position: relative;
 }
 
 .layer {
@@ -42,4 +44,36 @@ body {
   width: 100%;
   position: absolute;
   background-size: cover;
+  background-position: center;
+  will-change: transform;
+  z-index: 2;
+}
+
+.layers__base {
+  transform: translate3d(0, calc(var(--scrollTop) / 1.6), 0);
+  z-index: 0;
+}
+
+.layers__middle {
+  transform: translate3d(0, calc(var(--scrollTop) / 2.5), 0);
+}
+
+.layers__front {
+  transform: translate3d(0, calc(var(--scrollTop) / 5.7), 0);
+}
+
+.layer__header {
+  z-index: 1;
+  transform: translate3d(0, calc(var(--scrollTop) / 1.9), 0);
+  will-change: transform;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.layers__title {
+  font-size: calc(var(--index) * 2.1);
+}
+
+.main-article {
+  min-height: 100vh;
 }
